@@ -8,7 +8,7 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
         @*Comento la etiqueta LoginDisplay para no llamar LoginDisplay.razor porque dicho componente es diferente al NavMenu.razor
-            y por tanto tiene otros estilos css. Probar descomentariando la siguiente etiqueta *@ 
+        y por tanto tiene otros estilos css. Probar descomentariando la siguiente etiqueta *@
         @*<LoginDisplay />*@
         <AuthorizeView>
             <Authorized>
@@ -49,6 +49,11 @@
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="fetchdata">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="samplepage">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Sample Page
             </NavLink>
         </li>
     </ul>

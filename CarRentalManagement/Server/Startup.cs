@@ -32,9 +32,13 @@ namespace CarRentalManagement.Server
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            /*Usado para la autenticación ApplicationUser implementa la interfaz IdentityUser, la clase puede ser ampliada mediante otros campos
+              y también extendiendo la clase se pueden crear tipos de usuarios. La función lambda (es opcional, se puede quitra )dice que se necesita 
+            confirmación de la cuenta mediante correo una vez registrado, por defecto aparece en true. Luego se agrega la entidad al contexto de la DB*/
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            //Usado para definir el servidor de identidad (acceso a la API, etc), por defecto es standalone
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
@@ -67,6 +71,7 @@ namespace CarRentalManagement.Server
 
             app.UseRouting();
 
+            //Los middleware para el uso de la app (El pollo del arroz con pollo), servidor de autenticación, autenticación de usuario y la autorización
             app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();

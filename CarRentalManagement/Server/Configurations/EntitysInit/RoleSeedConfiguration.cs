@@ -17,13 +17,13 @@ namespace CarRentalManagement.Server.Configurations.EntitysInit
                 {
                     Name = "User",
                     NormalizedName = "USER",
-                    Id = Guid.NewGuid().ToString()
+                    Id = "891c0721-f23b-49c2-bbda-3e59b0c20f38"
                 },
                 new IdentityRole
                 {
                     Name = "Administrator",
                     NormalizedName = "ADMINISTRATOR",
-                    Id = Guid.NewGuid().ToString()
+                    Id = "5d61cf78-e527-43bd-92ec-35518c889ac9"
                 }
             );
         }
